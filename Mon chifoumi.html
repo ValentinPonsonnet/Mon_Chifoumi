@@ -80,49 +80,50 @@
         document.getElementById("rejouer").style.display="none";
         document.getElementById("resultat-gauche").innerHTML="&nbsp;";
         document.getElementById("resultat-droite").innerHTML="&nbsp;";
-        ResultatJeux = ["Rien","Rien"];
-        chifoumi = ('pierre', 'feuille', 'ciseaux');
+        ResultatJeux = ["rien", "rien"];
+        chifoumi = ["pierre", "ciseau", "feuille"];
         document.getElementById('image-gauche').style.pointerEvents = 'auto';
         document.getElementById('image-droite').style.pointerEvents = 'auto';
-        document.getElementById("gauche").style.backgroundColor=document.getElementById("droite").style.backgroundColor="#00ffd6";
-        document.getElementById('titre').innerHTML="Chifumi";
+        document.getElementById("gauche").style.backgroundColor=document.getElementById("droite").style.backgroundColor="#bbbbbb";
+        document.getElementById("titre").innerHTML="Chifoumi";
         document.getElementById("image-gauche").style.backgroundImage=document.getElementById("image-droite").style.backgroundImage="url(images-pfc/depart.jpg)";
     }
 
     function joueurGauche() {
         var ChoixAleatoire = Math.floor(Math.random()*chifoumi.length);
         ResultatJeux[0] = chifoumi[ChoixAleatoire];
-        document.getElementById("image-gauche").style.backgroundImage="url(image-pfc/"+chifoumi[ChoixAleatoire]+".jpg;";
+        document.getElementById("image-gauche").style.backgroundImage="url(images-pfc/"+chifoumi[ChoixAleatoire]+".jpg)";
         document.getElementById("gauche").style.backgroundColor="black";
-        document.getElementById("résultat-gauche").innerHTML=chifoumi[ChoixAleatoire];
+        document.getElementById("resultat-gauche").innerHTML=chifoumi[ChoixAleatoire];
         document.getElementById('image-gauche').style.pointerEvents = 'none';
         checkGame();
     }
 
     function joueurDroite() {
         var ChoixAleatoire = Math.floor(Math.random()*chifoumi.length);
-        ResultatJeux[0] = chifoumi[ChoixAleatoire];
-        document.getElementById("image-droite").style.backgroundImage="url(image-pfc/"+chifoumi[ChoixAleatoire]+".jpg;";
+        ResultatJeux[1]=chifoumi[ChoixAleatoire];
+        document.getElementById("image-droite").style.backgroundImage="url(images-pfc/"+chifoumi[ChoixAleatoire]+".jpg)";
         document.getElementById("droite").style.backgroundColor="black";
-        document.getElementById("résultat-droite").innerHTML=chifoumi[ChoixAleatoire];
+        document.getElementById("resultat-droite").innerHTML=chifoumi[ChoixAleatoire];
         document.getElementById('image-droite').style.pointerEvents = 'none';
         checkGame();
+
     }
 
     function checkGame() {
         setTimeout(function () {
             if (ResultatJeux[0] != 'rien' && ResultatJeux[1] != 'rien') {
                 if (ResultatJeux[0] === ResultatJeux[1]) {
-                    document.getElementById("titre").innerHTML="Egalité, dommage!!";
+                    document.getElementById("titre").innerHTML="Egalité, ça craint !!";
                     document.getElementById("droite").style.backgroundColor=document.getElementById("gauche").style.backgroundColor="red";
                 }
 
                 if (ResultatJeux[0] === 'ciseau' && ResultatJeux[1] === 'pierre') {
-                    document.getElementById("titre").innerHTML = "La pierre casse les ciseaux";
-                    document.getElementById("gauche").style.backgroundColor = "red";
-                    document.getElementById("droite").style.backgroundColor = "green";
-                    document.getElementById("resultat-gauche").innerHTML = "Perdu";
-                    document.getElementById("resultat-droite").innerHTML = "Gagné";
+                    document.getElementById("titre").innerHTML="La pierre défonce le ciseau";
+                    document.getElementById("gauche").style.backgroundColor="red";
+                    document.getElementById("droite").style.backgroundColor="green";
+                    document.getElementById("resultat-gauche").innerHTML="Perdu";
+                    document.getElementById("resultat-droite").innerHTML="Gagné";
                 }
 
                 if (ResultatJeux[0] === 'ciseau' && ResultatJeux[1] === 'feuille') {
