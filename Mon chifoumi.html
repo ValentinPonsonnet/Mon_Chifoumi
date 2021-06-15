@@ -77,26 +77,16 @@
 <div id="rejouer"> <button type="button" class="bouton" onclick="Initialisation();">Rejouer</button> </div>
 <script>
     function Initialisation() {
-
-        //Initialisation du bouton rejouer mais il n'apparait pas
-
-        //Prend le résultat de gauche avec un espace pour ecrire quel image choisit
-
-        //Prend le résultat de droite avec un espace pour ecrire quel image choisit
-
-        //Résultat obtenue si le joueur de droite ET de gauche on choisi la même carte
-
-        //Texte disant pierre, feuille, ciseau
-
-        //Il va chercher une image pour le joueur de gauche dans la fonction joueur de gauche
-
-        //Il va chercher l'image du joueur de droite dans la fonction joueur de droite
-
-        //Change la couleur du corps de la page que ça soit à droite ou à gauche
-
-        //Recupere le titre de la page en locurence Chifoumi
-
-        //Récupere le background de l'image de gauche et de l'image de droite
+        document.getElementById("rejouer").style.display="none";
+        document.getElementById("resultat-gauche").innerHTML="&nbsp;";
+        document.getElementById("resultat-droite").innerHTML="&nbsp;";
+        ResultatJeux = ["Rien","Rien"]
+        chifoumi = ('pierre', 'feuille', 'ciseaux')
+        document.getElementById('image-gauche').style.pointerEvents = 'auto';
+        document.getElementById('image-droite').style.pointerEvents = 'auto';
+        document.getElementById("gauche").style.backgroundColor=document.getElementById("droite").style.backgroundColor="#00ffd6"
+        document.getElementById('titre').innerHTML"Chifumi"
+        document.getElementById("image-gauche").style.backgroundImage=document.getElementById("image-droite").style.backgroundImage="url(images-pfc/depart.jpg)";
     }
 
     function joueurGauche() {
