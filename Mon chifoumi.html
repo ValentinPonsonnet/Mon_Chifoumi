@@ -100,79 +100,75 @@
     }
 
     function joueurDroite() {
-
-
-
-
-
-
+        var ChoixAleatoire = Math.floor(Math.random()*chifoumi.length);
+        ResultatJeux[0] = chifoumi[ChoixAleatoire];
+        document.getElementById("image-droite").style.backgroundImage="url(image-pfc/"+chifoumi[ChoixAleatoire]+".jpg;";
+        document.getElementById("droite").style.backgroundColor="black";
+        document.getElementById("résultat-droite").innerHTML=chifoumi[ChoixAleatoire];
+        document.getElementById('image-droite').style.pointerEvents = 'none';
         checkGame();
-
     }
 
     function checkGame() {
         setTimeout(function () {
-
-
-
-
+            if (ResultatJeux[0] != 'rien' && ResultatJeux[1] != 'rien') {
+                if (ResultatJeux[0] === ResultatJeux[1]) {
+                    document.getElementById("titre").innerHTML="Egalité, dommage!!";
+                    document.getElementById("droite").style.backgroundColor=document.getElementById("gauche").style.backgroundColor="red";
                 }
-                //Si les deux résultats sont identique, alors on affiche "Egalité,ça craint !!"
 
                 if (ResultatJeux[0] === 'ciseau' && ResultatJeux[1] === 'pierre') {
-
-
-
-
-
+                    document.getElementById("titre").innerHTML = "La pierre casse les ciseaux";
+                    document.getElementById("gauche").style.backgroundColor = "red";
+                    document.getElementById("droite").style.backgroundColor = "green";
+                    document.getElementById("resultat-gauche").innerHTML = "Perdu";
+                    document.getElementById("resultat-droite").innerHTML = "Gagné";
                 }
-                //Si le résultat "ciseau" & "pierre" on affiche "pierre défonce les ciseaux", Rouge à gauche et vert à droite
 
                 if (ResultatJeux[0] === 'ciseau' && ResultatJeux[1] === 'feuille') {
-
-
-
-
-
+                    document.getElementById("titre").innerHTML="Le ciseau coupe la feuille";
+                    document.getElementById("gauche").style.backgroundColor="green";
+                    document.getElementById("droite").style.backgroundColor="red";
+                    document.getElementById("resultat-gauche").innerHTML="Gagné";
+                    document.getElementById("resultat-droite").innerHTML="Perdu";
                 }
 
                 if (ResultatJeux[0] === 'feuille' && ResultatJeux[1] === 'pierre') {
-
-
-
-
-
+                    document.getElementById("titre").innerHTML="La feuille enveloppe la pierre";
+                    document.getElementById("gauche").style.backgroundColor="green";
+                    document.getElementById("droite").style.backgroundColor="red";
+                    document.getElementById("resultat-gauche").innerHTML="Gagné";
+                    document.getElementById("resultat-droite").innerHTML="Perdu";
                 }
 
                 if (ResultatJeux[0] === 'feuille' && ResultatJeux[1] === 'ciseau') {
-
-
-
-
-
+                    document.getElementById("titre").innerHTML="Le ciseau coupe la feuille";
+                    document.getElementById("gauche").style.backgroundColor="red";
+                    document.getElementById("droite").style.backgroundColor="green";
+                    document.getElementById("resultat-gauche").innerHTML="Perdu";
+                    document.getElementById("resultat-droite").innerHTML="Gagné";
                 }
 
                 if (ResultatJeux[0] === 'pierre' && ResultatJeux[1] === 'feuille') {
-
-
-
-
-
+                    document.getElementById("titre").innerHTML="La feuille enveloppe la pierre";
+                    document.getElementById("gauche").style.backgroundColor="red";
+                    document.getElementById("droite").style.backgroundColor="green";
+                    document.getElementById("resultat-gauche").innerHTML="Perdu";
+                    document.getElementById("resultat-droite").innerHTML="Gagné";
                 }
 
                 if (ResultatJeux[0] === 'pierre' && ResultatJeux[1] === 'ciseau') {
-
-
-
-
-
+                    document.getElementById("titre").innerHTML="La pierre défonce le ciseau";
+                    document.getElementById("gauche").style.backgroundColor="green";
+                    document.getElementById("droite").style.backgroundColor="red";
+                    document.getElementById("resultat-gauche").innerHTML="Gagné";
+                    document.getElementById("resultat-droite").innerHTML="Perdu";
                 }
 
                 document.getElementById("rejouer").style.display="initial";
             }
             ;}, 1000);
     }
-    //On ré-initialise avec le bouton "rejouer" et on recommence.
 </script>
 </body>
 </html>
